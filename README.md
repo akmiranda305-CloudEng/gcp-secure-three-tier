@@ -111,3 +111,17 @@ The retained network resources may have other applicable costs depending on usag
 ## Project Goals
 
 This project is part of my hands-on Cloud Engineering learning portfolio, demonstrating practical experience building, testing, securing, and managing cloud infrastructure.
+
+## Project Screenshots
+
+### 1. Network Overview
+![GCP Network Overview](docs/images/network-overview.png)
+
+### 2. Subnet Configuration
+![GCP Subnets](docs/images/subnets.png)
+
+### 3. Web Server Configuration
+![GCP Web Server Configuration](docs/images/web-server-configuration.png)
+
+### 4. Live Nginx Website
+![Nginx Live Demo](docs/images/nginx-live-demo.png)
