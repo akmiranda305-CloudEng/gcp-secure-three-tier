@@ -22,11 +22,3 @@ resource "google_compute_subnetwork" "app" {
   private_ip_google_access = true
 }
 
-# Database tier subnet
-resource "google_compute_subnetwork" "db" {
-  name                     = "db-subnet"
-  region                   = var.region
-  network                  = google_compute_network.main.id
-  ip_cidr_range            = "10.30.0.0/24"
-  private_ip_google_access = true
-}

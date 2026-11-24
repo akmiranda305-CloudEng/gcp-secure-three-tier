@@ -30,21 +30,6 @@ resource "google_compute_firewall" "web_to_app" {
   }
 }
 
-# Allow application servers to communicate with PostgreSQL
-resource "google_compute_firewall" "app_to_db" {
-  name    = "allow-app-to-db"
-  network = google_compute_network.main.name
-
-  direction     = "INGRESS"
-  priority      = 1000
-  source_ranges = ["10.20.0.0/24"]
-  target_tags   = ["db-tier"]
-
-  allow {
-    protocol = "tcp"
-    ports    = ["5432"]
-  }
-}
 
 # Allow SSH administration through Identity-Aware Proxy (IAP)
 resource "google_compute_firewall" "allow_iap_ssh" {
@@ -54,7 +39,7 @@ resource "google_compute_firewall" "allow_iap_ssh" {
   direction     = "INGRESS"
   priority      = 1000
   source_ranges = ["35.235.240.0/20"]
-  target_tags   = ["web-tier", "app-tier", "db-tier"]
+  target_tags   = ["web-tier", "app-tier"]
 
   allow {
     protocol = "tcp"
