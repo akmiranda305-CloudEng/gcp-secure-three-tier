@@ -60,7 +60,9 @@ flowchart LR
 | Request through all three tiers | HTTP 200, JSON containing `"database": "connected"` | ![e2e](docs/images/e2e-request.png) |
 | App tier has no public IP | `EXTERNAL_IP` empty | ![app](docs/images/app-no-external-ip.png) |
 | Cloud SQL has no public IP | No public address, private 10.100.x.x address | ![sql](docs/images/cloud-sql-private.png) |
+| Web VM could reach the database BEFORE the egress rule | Connection to 5432 succeeded (the gap) | ![before](docs/images/web-to-db-open-before.png) |
 | Web VM cannot reach the database | Connection to 5432 blocked | ![blocked](docs/images/web-to-db-blocked.png) |
+| App VM can reach the database (control) | Connection to 5432 succeeds from the app tier | ![control](docs/images/app-to-db-open.png) |
 | DB password in Secret Manager | Secret present, access limited to app service account | ![secret](docs/images/secret-manager.png) |
 | Final firewall rules | Four rules | ![fw](docs/images/firewall-rules.png) |
 | Subnets | web-subnet and app-subnet | ![subnets](docs/images/subnets.png) |
